@@ -15,8 +15,13 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(name, price, category){
+  let item = {
+    name: name,
+    price: price,
+    category: category
+  }
+  return item;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -29,7 +34,9 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
-
+console.log(createMenuItem('coffee', 2, 'beverage'));
+console.log(createMenuItem('chocolate', 7, 'snack'));
+console.log(createMenuItem('fried rice', 10, 'dinner'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to the 
@@ -47,11 +54,17 @@ Using the burger object below do the following:
 export const burger = {
   name: "Burger", 
   price: 18, 
-  category: "Lunch", 
-  /*Your code here*/
+  category: "Lunch",
+  discount: function (customer) {
+    if (customer == 'teacher') {
+      return this.price-this.price*.25
+    } else if (customer == 'student') {
+      return this.price-this.price*.1
+    } else return this.price-this.price;
+  }
 }
 
-
+burger.discount('teacher');
 
 ///////////////Reviews (MVP)///////////////////
 const reviews = [
